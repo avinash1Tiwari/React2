@@ -1,0 +1,31 @@
+/* #header{
+    color: rgb(185, 27, 53);
+} */
+
+
+#d1{
+    margin-top: 100px;
+
+    width: 400px;
+    height: 400px;
+    background-color: yellow;
+}
+
+
+#d2{
+
+    width: 250px;
+    height: 250px;
+    background-color: rgb(89, 30, 171);
+    margin: 50px;
+    margin-left: 100px;
+}
+
+#h1{
+
+    color: cornsilk;
+}
+
+#p1{
+    color: azure;
+}
