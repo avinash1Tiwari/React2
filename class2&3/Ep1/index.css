@@ -2,7 +2,9 @@
     color: rgb(185, 27, 53);
 } */
 
-
+#root{
+    color:green
+}
 #d1{
     margin-top: 100px;
 
