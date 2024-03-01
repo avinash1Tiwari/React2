@@ -1,24 +1,25 @@
 {
   "name": "ep1",
   "version": "1.0.0",
-  "description": "learning basics of npm and parcel bundler",     
- 
+  "description": "learning basics of npm and parcel bundler",
   "scripts": {
-    "start" : "parcel index.html",
-    "build" : "parcel build index.html",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "avinash tiwari",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.11.0",
+    "parcel": "^2.12.0",
     "process": "^0.11.10"
   },
   "dependencies": {
+    "babel": "^6.23.0",
+    "node": "^21.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "browserlist" : [
+  "browserlist": [
     "last 2 versions"
   ]
 }
