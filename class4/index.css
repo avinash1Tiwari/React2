@@ -1,0 +1,41 @@
+.logo{
+    width: 100px;
+}
+
+.navbar{
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction:column;
+    color: rgb(32, 41, 216);
+}
+.item{
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.header{
+    /* width: 90%; */
+    margin-right: 5px;
+    display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 15px;
+  margin-left: 5px;
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 2%, rgba(9,36,121,0.6195728291316527) 33%, rgba(0,212,255,1) 94%);
+
+}
+.logo{
+    border-radius: 50px;
+}
+.items{
+    font-weight: 600;
+    font-size: 20px;
+    color: black;
+
+}
+.items:hover{
+    color: blueviolet;
+transition: all 0.5s;
+}
