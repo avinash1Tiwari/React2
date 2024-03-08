@@ -1,5 +1,6 @@
 import Restaurant_Card from "./Restaurant_Card"
 import resObj from "../utils/MockData"
+import { useState } from "react";
 
 // const resObj = [
 //     {
@@ -587,8 +588,28 @@ import resObj from "../utils/MockData"
 // ]
 
 const Restaurant_Container = ()=>{
+
+    const [resData , setResData] = useState(resObj);
+
+    function clickHandler(){
+
+        setResData(resData.filter((res) =>
+            res.info.avgRating>4.1
+        ));
+
+       
+    }
+
+
     return(
+        <div>
+              <div>
+                <button className="filter-btn" onClick={clickHandler}>Filter Button</button>
+            </div>
         <div className="restaurants">
+
+          
+          
 
             {/* <Restaurant_Card/> */}
             {/* <Restaurant_Card resData = {resObj[0]}/>
@@ -602,13 +623,14 @@ const Restaurant_Container = ()=>{
             <Restaurant_Card resData = {resObj[8]}/> */}
 
             {
-                resObj.map((restaurant) => {
+                resData.map((restaurant) => {
                     return(
                         <Restaurant_Card resData = {restaurant}/>
                     )
                 })
             }
             
+        </div>
         </div>
     )
 }

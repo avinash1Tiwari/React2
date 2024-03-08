@@ -319,7 +319,7 @@ const resObj = [
     },
     {
       "info": {
-        "id": "76225",
+        "id": "7625",
         "name": "Subway",
         "cloudinaryImageId": "63178e3e64d503a479f2a2048a474552",
         "locality": "Malka Ganj Road",
@@ -461,7 +461,7 @@ const resObj = [
     },
     {
       "info": {
-        "id": "16865",
+        "id": "6865",
         "name": "Pizza Hut",
         "cloudinaryImageId": "2b4f62d606d1b2bfba9ba9e5386fabb7",
         "locality": "Near Tibetian Market",

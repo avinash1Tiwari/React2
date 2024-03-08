@@ -4,6 +4,7 @@ import {CARD_URL} from '../utils/constants'
 
 const Restaurant_Card = ({resData})=>{
 
+
     const {
         name,
         cloudinaryImageId,
