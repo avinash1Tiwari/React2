@@ -1,4 +1,5 @@
 import Restaurant_Card from "./Restaurant_Card"
+import Shimmer from "./Shimmer"
 // import resObj from "../utils/MockData"
 import { useState,useEffect } from "react";
 
@@ -38,11 +39,17 @@ const Restaurant_Container = ()=>{
        }
 
       
-       if(resData.length === 0 )
-       {
-        return <h1>Loading....</h1>;
-       }
+    //    if(resData.length === 0 )
+    //    {
+    //     return <h1>Loading....</h1>;
+    //    }
 
+
+    //  can add shimmer till data comming from api
+         if(resData.length === 0 )
+       {
+        return <Shimmer/>;
+       }
 
 
     return(
