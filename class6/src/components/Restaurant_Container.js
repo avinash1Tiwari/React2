@@ -22,17 +22,26 @@ const Restaurant_Container = ()=>{
        },[])
 
        const fetchData = async () =>{
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.9974&lng=79.0011&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+        
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
 
         const json = await data.json();
-            console.log("bhai data le lelo")
-            const restaurantData = json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants;
+            console.log(json)
+            const restaurantData = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+            // const restaurantData =json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants;
+            // const restaurantData =json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
+   
             setResData(restaurantData)
-        console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            console.log("dkmkm")
+        console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
+        // 
        }
 
       
-
+       if(resData.length === 0 )
+       {
+        return <h1>Loading....</h1>;
+       }
 
 
 
