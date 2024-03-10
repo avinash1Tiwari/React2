@@ -28,7 +28,7 @@ const Restaurant_Container = ()=>{
             console.log("bhai data le lelo")
             const restaurantData = json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants;
             setResData(restaurantData)
-        console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants)
+        console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
        }
 
       
