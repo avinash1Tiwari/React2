@@ -46,32 +46,67 @@ const Restaurant_Container = ()=>{
 
 
     //  can add shimmer till data comming from api
-         if(resData.length === 0 )
-       {
-        return <Shimmer/>;
-       }
+    //      if(resData.length === 0 )
+    //    {
+    //     return <Shimmer/>;
+    //    }
 
 
-    return(
+    // return(
+    //     <div>
+    //           <div>
+    //             <button className="filter-btn" onClick={clickHandler}>Filter Button</button>
+    //         </div>
+    //     <div className="restaurants">
+
+
+    //         {
+    //             resData.map((restaurant) => {
+    //                 return(
+    //                     <Restaurant_Card  key={restaurant.info.id} resData = {restaurant}/>
+    //                 )
+    //             })
+    //         }
+            
+    //     </div>
+    //     </div>
+    // )
+
+
+
+
+
+
+    // added ternary operator
+
+    const[searchText,setsearchText] = useState("");
+
+    function changeHandler(event){
+        console.log(event.target.value);
+        setsearchText(event.target.value)
+    }
+
+    function clickHandler1()
+    {
+        const updatedresData = resData.filter((element) => element.info.name.includes(searchText))
+
+        setResData(updatedresData)
+    }
+
+   return resData.length === 0 ? <Shimmer/> :(
         <div>
+              <div className="btns">
               <div>
                 <button className="filter-btn" onClick={clickHandler}>Filter Button</button>
             </div>
+          
+            <input type="text" className="search" value = {searchText} id="ss" onChange={changeHandler}/>
+              
+              <button onClick={clickHandler1}>search</button>
+              </div>
+ 
         <div className="restaurants">
 
-          
-          
-
-            {/* <Restaurant_Card/> */}
-            {/* <Restaurant_Card resData = {resObj[0]}/>
-            <Restaurant_Card resData = {resObj[1]}/>
-            <Restaurant_Card resData = {resObj[2]}/>
-            <Restaurant_Card resData = {resObj[3]}/>
-            <Restaurant_Card resData = {resObj[4]}/>
-            <Restaurant_Card resData = {resObj[5]}/>
-            <Restaurant_Card resData = {resObj[6]}/>
-            <Restaurant_Card resData = {resObj[7]}/>
-            <Restaurant_Card resData = {resObj[8]}/> */}
 
             {
                 resData.map((restaurant) => {
