@@ -8,6 +8,7 @@ import { useState,useEffect } from "react";
 const Restaurant_Container = ()=>{
 
     const [resData , setResData] = useState([]);
+    const [filteredData,setFilteredData] = useState([]);
 
     function clickHandler(){
 
@@ -21,18 +22,19 @@ const Restaurant_Container = ()=>{
     useEffect(()=>{
         fetchData();
        },[])
-
+       let restaurantData;
        const fetchData = async () =>{
         
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
 
         const json = await data.json();
             console.log(json)
-            const restaurantData = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+             restaurantData = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
             // const restaurantData =json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants;
             // const restaurantData =json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
    
             setResData(restaurantData)
+            setFilteredData(restaurantData)
             console.log("dkmkm")
         console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
         // 
@@ -88,9 +90,17 @@ const Restaurant_Container = ()=>{
 
     function clickHandler1()
     {
-        const updatedresData = resData.filter((element) => element.info.name.includes(searchText))
+       
+        // const updatedresData = resData.filter((element) => element.info.name.includes(searchText))
 
-        setResData(updatedresData)
+        // make sure to make both searchText and name of restaurant as Lowercase
+        // const updatedresData = resData.filter((element) => element.info.name.toLowerCase().includes(searchText.toLowerCase()))
+        const filteredData1 = resData.filter((element) => element.info.name.toLowerCase().includes(searchText.toLowerCase()))
+
+
+        setFilteredData(filteredData1)
+
+        console.log(searchText)
     }
 
    return resData.length === 0 ? <Shimmer/> :(
@@ -108,14 +118,24 @@ const Restaurant_Container = ()=>{
         <div className="restaurants">
 
 
-            {
+            {/* {
                 resData.map((restaurant) => {
                     return(
                         <Restaurant_Card  key={restaurant.info.id} resData = {restaurant}/>
                     )
                 })
-            }
+            } */}
             
+
+            {
+                filteredData.map((restaurant) => {
+                    return(
+                        <Restaurant_Card  key={restaurant.info.id} resData = {restaurant}/>
+                    )
+                })
+            }
+
+
         </div>
         </div>
     )
