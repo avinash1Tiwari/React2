@@ -2,6 +2,7 @@ import Restaurant_Card from "./Restaurant_Card"
 import Shimmer from "./Shimmer"
 // import resObj from "../utils/MockData"
 import { useState,useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 
@@ -28,7 +29,7 @@ const Restaurant_Container = ()=>{
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
 
         const json = await data.json();
-            console.log(json)
+            // console.log(json)
              restaurantData = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
             // const restaurantData =json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants;
             // const restaurantData =json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
@@ -36,7 +37,7 @@ const Restaurant_Container = ()=>{
             setResData(restaurantData)
             setFilteredData(restaurantData)
             console.log("dkmkm")
-        console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
+        // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
         // 
        }
 
@@ -130,7 +131,9 @@ const Restaurant_Container = ()=>{
             {
                 filteredData.map((restaurant) => {
                     return(
-                        <Restaurant_Card  key={restaurant.info.id} resData = {restaurant}/>
+                   <Link key={restaurant.info.id} to = {"/restaurants/" + restaurant.info.id}>
+                      <Restaurant_Card   resData = {restaurant}/>
+                   </Link>
                     )
                 })
             }

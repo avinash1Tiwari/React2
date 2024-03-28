@@ -1,6 +1,7 @@
 import React from "react"
 import Header from "./Header"
 import Body from "./Body"
+import { Outlet } from "react-router-dom"
 
 
 const AppLayout = ()=>{
@@ -8,7 +9,8 @@ const AppLayout = ()=>{
         <div>
 
             <Header/>
-            <Body/>  
+            <Outlet/>
+            {/* <Body/>   */}
         </div>
     )
 }

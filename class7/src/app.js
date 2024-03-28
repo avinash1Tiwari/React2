@@ -25,9 +25,38 @@ import Home from "./components/Home";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import ErrorPage from "./components/ErrorPage";
+import Body from "./components/Body";
 
 
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+import RestaurantMenu from "./components/RestaurantMenu";
+
+// const appRouter = createBrowserRouter([
+//     {
+//         path :"/",
+//         element : <AppLayout/>,
+//         // errorElement : <div>Oops!! something went wrong</div>
+
+//         errorElement : <ErrorPage/>
+//     },
+//     {
+//         path :"/about",
+//         element : <About/>
+//     },
+//     {
+//         path :"/contact",
+//         element : <Contact/>,
+       
+//     }
+// ])
+
+
+
+
+
+
+
+
 
 const appRouter = createBrowserRouter([
     {
@@ -35,17 +64,34 @@ const appRouter = createBrowserRouter([
         element : <AppLayout/>,
         // errorElement : <div>Oops!! something went wrong</div>
 
-        errorElement : <ErrorPage/>
+        errorElement : <ErrorPage/>,
+
+        children : [
+            {
+                path : "/",
+                element : <Body/>
+            },
+            {
+                path : "/home",
+                element : <Home/>
+            },
+            {
+                path :"/about",
+                element : <About/>
+            },
+            {
+                path :"/contact",
+                element : <Contact/>,
+               
+            },
+            {
+                path :"/restaurants/:resId",
+                element : <RestaurantMenu/>,
+               
+            }
+        ]
     },
-    {
-        path :"/about",
-        element : <About/>
-    },
-    {
-        path :"/contact",
-        element : <Contact/>,
-       
-    }
+    
 ])
 
 
